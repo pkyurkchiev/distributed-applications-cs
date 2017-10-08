@@ -11,3 +11,13 @@ Distributed programming is characterized by several distinct physical components
 ### The Five Principles of Distributed Design
 
 [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/doc_1.md)
+
+
+#
+### Weeks Schedule
+
+* First week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_one)
+* Second week -
+* Third week -
+* Fourth week -
+* Fifth week - 
