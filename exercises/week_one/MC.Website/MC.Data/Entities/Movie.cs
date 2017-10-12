@@ -21,5 +21,8 @@ namespace MC.Data.Entities
 
         [StringLength(4000)]
         public string Description { get; set; }
+
+        public int RatingId { get; set; }
+        public virtual Rating Rating { get; set; }
     }
 }

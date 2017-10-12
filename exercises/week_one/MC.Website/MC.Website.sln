@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MC.Website", "MC.Website\MC.Website.csproj", "{133EF5AD-3F4B-462F-A2E3-27FDD69B85E2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MC.Data", "MC.Data\MC.Data.csproj", "{AC5FA5F2-1CF3-49D7-AB1C-E64929B40EBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E45ED358-3DF1-4B33-AAEA-F959416CE484}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MC.Website", "MC.Website\MC.Website.csproj", "{E3DA37B8-9D08-4962-8E98-5623B080A477}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +20,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{133EF5AD-3F4B-462F-A2E3-27FDD69B85E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{133EF5AD-3F4B-462F-A2E3-27FDD69B85E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{133EF5AD-3F4B-462F-A2E3-27FDD69B85E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{133EF5AD-3F4B-462F-A2E3-27FDD69B85E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC5FA5F2-1CF3-49D7-AB1C-E64929B40EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC5FA5F2-1CF3-49D7-AB1C-E64929B40EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC5FA5F2-1CF3-49D7-AB1C-E64929B40EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC5FA5F2-1CF3-49D7-AB1C-E64929B40EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3DA37B8-9D08-4962-8E98-5623B080A477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DA37B8-9D08-4962-8E98-5623B080A477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DA37B8-9D08-4962-8E98-5623B080A477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DA37B8-9D08-4962-8E98-5623B080A477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
