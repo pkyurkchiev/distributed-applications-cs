@@ -6,7 +6,5 @@ namespace MC.Data.Context
     public class MovieCatalogDbContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
-
-        public DbSet<Rating> Ratings { get; set; }
     }
 }
