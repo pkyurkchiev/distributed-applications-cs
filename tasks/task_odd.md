@@ -25,12 +25,11 @@ End course task for odd faculty numbers
 
 
 ## Restrictions
-Required fields are mark with stars.
-Eligible characters:
-Game.Name – acceptable characters between 1 and 200.
-Genre.GenreName – acceptable characters between 1 and 100.
-Author.RatingValue – acceptable characters between 1 and 100.
-Author.Comment – acceptable characters between 1 and 400.
+Required fields are mark with stars. Eligible characters:
+* Game.Name – acceptable characters between 1 and 200.
+* Genre.GenreName – acceptable characters between 1 and 100.
+* Author.RatingValue – acceptable characters between 1 and 100.
+* Author.Comment – acceptable characters between 1 and 400.
 
 
 

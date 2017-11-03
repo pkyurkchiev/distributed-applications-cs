@@ -20,10 +20,10 @@ Distributed programming is characterized by several distinct physical components
 
 
 #
-### Course task
+### Course tasks
 
-Task even faculty number: [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/task_even.md)
-Task odd faculty number: [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/task_odd.md)
+* Task even faculty number: [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/task_even.md)
+* Task odd faculty number: [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/task_odd.md)
 
 
 #
