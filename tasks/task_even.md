@@ -1,7 +1,6 @@
 # Online book library
 
 
-#
 ## Structure of the system by enties:
 
 * Book
