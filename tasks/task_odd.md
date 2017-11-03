@@ -39,19 +39,18 @@ Required fields are mark with stars. Eligible characters:
 
 ## Filters
 Games/Index view need to have:
-Pager
-Sort column on Name, Genre and Rating.
+* Pager
+* Sort column on Name, Genre and Rating.
 
 
 
-## The online library need to have and authentication.
-Admin - Full access
-User - Need to access Games/Index page, and need to have rights to use search panel. But without access to Create, Update, Delete and access to Details.
-Anonymous – not register users. They can see only Games/Index and can use search panel. But without access to Create, Update, Delete and Details.
+## The online library need to have and authentication. Roles and access:
+* Admin - Full access
+* User - Need to access Games/Index page, and need to have rights to use search panel. But without access to Create, Update, Delete and access to Details.
+* Anonymous – not register users. They can see only Games/Index and can use search panel. But without access to Create, Update, Delete and Details.
 
 
 
 ### Information
-In the description for controller to view, we will use the following abbreviation:
-Example
-View Index to controller Games is Games/Index
+In the description for controller to view, we will use the following abbreviation.
+Example: View Index to controller Games is Games/Index
