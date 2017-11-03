@@ -1,4 +1,4 @@
-#Online book library
+# Online book library
 
 
 #
@@ -53,7 +53,7 @@ Anonymous – not register users. They can see only Books/Index.
 
 
 #
-###Informations
+### Informations
 In the description for controller to view, we will use the following abbreviation:
 Example
 View Index to contorller Books is Books/Index
