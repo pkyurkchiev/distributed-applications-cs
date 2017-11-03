@@ -14,7 +14,7 @@ End course task for even faculty numbers
   - String Description
 
 - Writer
-  - Int AuthorId
+  - Int WriterId
   - String FirstName *
   - String LastName
   - String UserName
@@ -29,8 +29,8 @@ End course task for even faculty numbers
 Required fields are mark with stars. Eligible characters:
 * Book.Name – acceptable characters between 1 and 300.
 * Book.Discription – acceptable characters between 1 and 500.
-* Author.FirstName – acceptable characters between 1 and 200.
-* Author.LastName – acceptable characters between 1 and 200.
+* Writer.FirstName – acceptable characters between 1 and 200.
+* Writer.LastName – acceptable characters between 1 and 200.
 * Genre.GenreName – acceptable characters between 1 and 100.
 
 
