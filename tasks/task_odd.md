@@ -7,7 +7,7 @@ End course task for odd faculty numbers
 
 - Game
   - Int GameId
-  - String  *
+  - String Name *
   - String ReleaseYear *
   - Int GenreId
   - Int RatingId
