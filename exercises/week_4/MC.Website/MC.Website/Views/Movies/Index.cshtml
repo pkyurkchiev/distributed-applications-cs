@@ -1,0 +1,96 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IEnumerable<MC.Data.Entities.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+}
+@if(User.Identity.IsAuthenticated)
+{ 
+    <hr />
+    using (Html.BeginForm())
+    {
+        <div class="col-md-12">
+            <div class="col-md-2">
+                @Html.TextBox("titleSearch", (string)ViewBag.TitleSearch, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">
+                    <i class="glyphicon glyphicon-search"></i>Search
+                </button>
+            </div>
+        </div>
+        <div class="col-md-2" style="height: 50px;"></div>
+    }
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm, titleSearch = ViewBag.TitleSearch })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingId)
+        </th>
+        <th>
+            @Html.ActionLink("Writer", "Index", new { sortOrder = ViewBag.WriterSortParm, titleSearch = ViewBag.TitleSearch })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        @if (User.IsInRole("Admin"))
+        {
+             <th></th>
+        }
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.RatingValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Writer.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        @if (User.IsInRole("Admin"))
+        {
+        <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        }
+    </tr>
+}
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, titleSearch = ViewBag.TitleSearch, sortOrder = ViewBag.CurrentSortParm }))
