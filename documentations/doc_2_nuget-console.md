@@ -2,7 +2,6 @@
 
 
 
-
 **1. Enable migration to the project**
    - *enable-migrations -contexttypename [context.name]*
 

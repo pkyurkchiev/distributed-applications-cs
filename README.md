@@ -20,6 +20,12 @@ Distributed programming is characterized by several distinct physical components
 
 
 #
+### OAuth Login Setup
+
+[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/doc_3_oauth.md)
+
+
+#
 ### Course tasks
 
 * Task even faculty numbers: [Link](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_even.md)
