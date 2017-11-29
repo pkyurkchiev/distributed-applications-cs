@@ -24,7 +24,7 @@ namespace MC.Website.Controllers
             IQueryable<Movie> movies = db.Movies.AsQueryable();
 
             ViewBag.TitleSearch = titleSearch;
-            if (!String.IsNullOrEmpty(titleSearch))
+            if (!String.IsNullOrEmpty(titleSearch) && this.User.Identity.IsAuthenticated)
             {
                 movies = movies.Where(x => x.Title.Contains(titleSearch));
             }

@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace MC.Website.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
