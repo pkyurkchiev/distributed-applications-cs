@@ -1,5 +1,5 @@
 # Introduction to Distributed applications
-This repository is part of the distributed applications course of Plovdiv University
+This repository is part of the distributed applications course for Computer Science of Plovdiv University
 
 
 
