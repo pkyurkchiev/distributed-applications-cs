@@ -9,7 +9,7 @@ Distributed programming is characterized by several distinct physical components
 
 # 
 ### Presentation
-* Introduction to the course - [Link](https://github.com/pkyurkchiev/web-programming-biel/blob/master/presentations/Introduction.pdf)
+* Introduction to the course - [Link](https://github.com/pkyurkchiev/distributed-applications-cs/blob/master/presentations/Introduction.pdf)
 
 
 #
