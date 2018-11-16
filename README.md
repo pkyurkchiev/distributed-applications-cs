@@ -7,6 +7,11 @@ This repository is part of the distributed applications course for Computer Scie
 Distributed programming is characterized by several distinct physical components working together as a single system. Here, “distinct physical components” could mean multiple CPUs or, more commonly, multiple computers on a network.
 
 
+# 
+### Presentation
+* Introduction to the course - [Link](https://github.com/pkyurkchiev/web-programming-biel/blob/master/presentations/Introduction.pdf)
+
+
 #
 ### The Five Principles of Distributed Design
 
