@@ -33,15 +33,12 @@ Distributed programming is characterized by several distinct physical components
 #
 ### Course tasks
 
-* Task even faculty numbers: [Link EN](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_even.md) --- [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_even_bg.pdf)
-* Task odd faculty numbers: [Link EN](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_odd.md) --- [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_odd_bg.pdf)
-
 
 #
 ### Weeks Schedule
 
 * First week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_1)
-* Second week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_2)
-* Third week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_3)
-* Fourth week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_4)
-* Fifth week 
+* Second week -
+* Third week -
+* Fourth week -
+* Fifth week -
