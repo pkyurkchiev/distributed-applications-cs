@@ -40,5 +40,5 @@ Distributed programming is characterized by several distinct physical components
 * First week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_1)
 * Second week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_2)
 * Third week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_3)
-* Fourth week -
-* Fifth week -
+* Fourth week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_4)
+* Fifth week 
