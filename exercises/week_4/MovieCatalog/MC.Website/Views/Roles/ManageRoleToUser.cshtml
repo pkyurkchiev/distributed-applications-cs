@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ManageRoleToUser";
+}
+
+<h2>ManageRoleToUser</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("User email", new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            @Html.TextBox("UserEmail", "", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Role", new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-2">
+            <input type="submit" value="Save" class="btn btn-warning" />
+        </div>
+    </div>
+</div>
+}
