@@ -30,8 +30,7 @@ Distributed programming is characterized by several distinct physical components
 #
 ### Course tasks
 
-* Task even faculty numbers: [Link EN](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_even.md) --- [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_even_bg.pdf)
-* Task odd faculty numbers: [Link EN](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_odd.md) --- [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task_odd_bg.pdf)
+* Task: [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task.pdf)
 
 
 #
