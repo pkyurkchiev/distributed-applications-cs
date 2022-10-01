@@ -28,5 +28,26 @@ namespace MC.Website.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Hello([FromRoute] int? id, [FromQuery] string name)
+        {
+            ViewBag.Id = id;
+            ViewBag.Name = name;
+            return View();
+        }
+
+        public IActionResult Calculator([FromQuery] double? a, [FromQuery] double? b)
+        {
+            double? perimeter, aria;
+            perimeter = 2 * a + 2 * b;
+            aria = a * b;
+
+            ViewBag.A = a;
+            ViewBag.B = b;
+            ViewBag.Perimeter = perimeter;
+            ViewBag.Aria = aria;
+
+            return View();
+        }
     }
 }
