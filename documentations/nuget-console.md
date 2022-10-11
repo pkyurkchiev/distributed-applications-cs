@@ -6,7 +6,7 @@
    - *enable-migrations -contexttypename [context.name]*
 
 **2. Create migration**
-   - *add-migration [name]*
+   - *add-migration [name] -context [context.name]*
 
 **3. Update database with applying all changes on the context**
-   - *update-database*
+   - *update-database -context [context.name]*
