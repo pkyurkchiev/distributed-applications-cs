@@ -14,10 +14,10 @@ namespace MC.Data.Entities
         public DateTime ReleaseDate { get; set; }
 
         public int? GenreId { get; set; }
-        public virtual Genre Genre { get; set; }
+        public virtual Genre? Genre { get; set; }
 
         public int? WriterId { get; set; }
-        public virtual Writer Writer { get; set; }
+        public virtual Writer? Writer { get; set; }
 
         public int? Rating { get; set; }
         [StringLength(100, MinimumLength = 3)]

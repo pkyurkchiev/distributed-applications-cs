@@ -10,6 +10,6 @@ namespace MC.Data.Entities
         [StringLength(50, MinimumLength = 2)]
         public string Value { get; set; }
 
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<Movie>? Movies { get; set; }
     }
 }

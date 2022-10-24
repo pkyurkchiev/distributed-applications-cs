@@ -12,8 +12,8 @@ namespace MC.Data.Entities
         [DataType(dataType: DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        public int GenreId { get; set; }
-        public virtual Genre Genre { get; set; }
+        public int? GenreId { get; set; }
+        public virtual Genre? Genre { get; set; }
 
         public int? Rating { get; set; }
         [StringLength(100, MinimumLength = 3)]
