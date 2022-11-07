@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using MC.Data.Entities;
 using MC.Website.Data;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace MC.Website.Controllers
 {
@@ -61,6 +63,7 @@ namespace MC.Website.Controllers
         }
 
         // GET: Movies/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Movies == null)
@@ -80,6 +83,7 @@ namespace MC.Website.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Value");
@@ -90,6 +94,7 @@ namespace MC.Website.Controllers
         // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,GenreId,WriterId,Rating,Country")] Movie movie)
@@ -107,6 +112,7 @@ namespace MC.Website.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Movies == null)
@@ -127,6 +133,7 @@ namespace MC.Website.Controllers
         // POST: Movies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,GenreId,WriterId,Rating,Country")] Movie movie)
@@ -161,7 +168,8 @@ namespace MC.Website.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Delete/5
+        // GET: Movies/Delete/
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Movies == null)
@@ -181,6 +189,7 @@ namespace MC.Website.Controllers
         }
 
         // POST: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
