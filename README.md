@@ -42,6 +42,6 @@ Distributed programming is characterized by several distinct physical components
 
 * Third week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_3) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_3)
 
-* Fourth week - [exercises](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/week_4)
+* Fourth week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_4) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_4)
 
 * Fifth week 
