@@ -36,12 +36,12 @@ Distributed programming is characterized by several distinct physical components
 #
 ### Weeks Schedule
 
-* First week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_1) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_1)
+* First week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_1) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_1)
 
-* Second week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_2) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_2)
+* Second week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_2) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_2)
 
-* Third week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_3) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_3)
+* Third week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_3) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_3)
 
-* Fourth week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_4) | [exercises net 6](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_6/week_4)
+* Fourth week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_4) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_4)
 
 * Fifth week 
