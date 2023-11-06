@@ -10,3 +10,6 @@
 
 **3. Update database with applying all changes on the context**
    - *update-database -context [context.name]*
+
+**4. Remove last migration**
+   - *remove-migration -context [context.name]*
