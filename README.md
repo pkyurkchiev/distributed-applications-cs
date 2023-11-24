@@ -14,12 +14,12 @@ Distributed programming is characterized by several distinct physical components
 
 #
 ### The Five Principles of Distributed Design
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/five-principles.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/five-principles.md)
 
 
 #
 ### NuGet Package Manager Console Guide
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/nuget-console.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/nuget-console.md)
 
 
 #
