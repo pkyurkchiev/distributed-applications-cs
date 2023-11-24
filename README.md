@@ -24,18 +24,16 @@ Distributed programming is characterized by several distinct physical components
 
 #
 ### OAuth Login Setup
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/oauth.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/oauth.md)
 
 
 #
 ### Course tasks
-
-* Task: [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task.pdf)
+* [Task](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task.pdf)
 
 
 #
 ### Weeks Schedule
-
 * First week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_1) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_1)
 
 * Second week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_2) | [exercises net 7](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_7/week_2)
