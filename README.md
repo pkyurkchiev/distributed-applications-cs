@@ -29,7 +29,7 @@ Distributed programming is characterized by several distinct physical components
 
 #
 ### Course tasks
-* [Task](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task.pdf)
+* [Task](https://github.com/pkyurkchiev/distributed-applications-cs/blob/master/course-work/README.md)
 
 
 #
