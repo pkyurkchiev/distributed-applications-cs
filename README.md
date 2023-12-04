@@ -9,33 +9,31 @@ Distributed programming is characterized by several distinct physical components
 
 # 
 ### Presentation
-* Introduction to the course - [Link](https://github.com/pkyurkchiev/distributed-applications-cs/blob/master/presentations/Introduction.pdf)
+* [Link](https://github.com/pkyurkchiev/distributed-applications-cs/blob/master/presentations/Introduction.pdf)
 
 
 #
 ### The Five Principles of Distributed Design
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/five-principles.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/five-principles.md)
 
 
 #
 ### NuGet Package Manager Console Guide
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/nuget-console.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/nuget-console.md)
 
 
 #
 ### OAuth Login Setup
-[Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/oauth.md)
+* [Link](https://github.com/pkyurkchiev/distributed-applications/tree/master/documentations/oauth.md)
 
 
 #
 ### Course tasks
-
-* Task: [Link BG](https://github.com/pkyurkchiev/distributed-applications/blob/master/tasks/task.pdf)
+* [Task](https://github.com/pkyurkchiev/distributed-applications-cs/blob/master/course-work/README.md)
 
 
 #
 ### Weeks Schedule
-
 * First week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_1) | [exercises net 8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_8/week_1)
 
 * Second week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_2) | [exercises net 8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_8/week_2)
@@ -44,4 +42,4 @@ Distributed programming is characterized by several distinct physical components
 
 * Fourth week - [exercises net framework 4.8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_framework_4.8/week_4) | [exercises net 8](https://github.com/pkyurkchiev/distributed-applications/tree/master/exercises/net_8/week_4)
 
-* Fifth week 
+* Fifth week - Check coursework
