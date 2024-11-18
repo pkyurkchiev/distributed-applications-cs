@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "ManageRoleToUser";
+}
+
+<h2>Manage Role to User</h2>
+<form asp-action="ManageRoleToUser">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="userEmail" class="control-label"></label>
+            <input name="userEmail" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="roleName" class="control-label"></label>
+            <select name="roleName" class="form-control" asp-items="ViewBag.Roles"></select>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

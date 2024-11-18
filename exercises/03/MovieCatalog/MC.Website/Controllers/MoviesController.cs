@@ -42,22 +42,13 @@ namespace MC.Website.Controllers
             ViewBag.TitleSortParam = string.IsNullOrEmpty(sortOrder) ? "title-desc" : "";
             ViewBag.ReleaseDateSortParam = sortOrder == "rdate-desc" ? "rdate-asc" : "rdate-desc";
 
-            switch (sortOrder)
+            movies = sortOrder switch
             {
-                case "title-desc":
-                    movies = movies.OrderByDescending(x => x.Title);
-                    break;
-                case "rdate-asc":
-                    movies = movies.OrderBy(x => x.ReleaseDate);
-                    break;
-                case "rdate-desc":
-                    movies = movies.OrderByDescending(x => x.ReleaseDate);
-                    break;
-                default:
-                    movies = movies.OrderBy(x => x.Title);
-                    break;
-            }
-
+                "title-desc" => movies.OrderByDescending(x => x.Title),
+                "rdate-asc" => movies.OrderBy(x => x.ReleaseDate),
+                "rdate-desc" => movies.OrderByDescending(x => x.ReleaseDate),
+                _ => movies.OrderBy(x => x.Title),
+            };
             return View(await movies.ToPagedListAsync(pageCurrent, pageMaxSize));
         }
 
