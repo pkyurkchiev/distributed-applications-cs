@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <style>
+        body {
+            /* Увери се, че файлът се казва точно bsd.jpg в папката wwwroot/images */
+            background-image: url('/images/bsd.jpg');
+            /* Настройки за позициониране */
+            background-size: cover; /* Да покрива целия екран */
+            background-repeat: no-repeat; /* Да не се повтаря */
+            background-attachment: fixed; /* Да стои неподвижно при скрол */
+            background-position: center bottom; /* Героите са долу, затова ги позиционираме там */
+        }
+
+        /* Правим кутията с текста полупрозрачна, за да се чете по-добре */
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.85); /* 85% плътно бяло */
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+}
+
+<div class="text-center">
+    <div class="content-box">
+        <h1 class="display-4">Добре дошъл в нашия каталог за аниме!</h1>
+        <p>Това е каталог за различни жанрове най-известни анимета, техните автори, рейтинг, описание и всичко базирано на класацията на IMDB.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h2>Жанрове</h2>
+                <p>Разгледайте аниметата по жанрове.</p>
+                <a class="btn btn-secondary" asp-controller="Genres" asp-action="Index">Виж Жанрове &raquo;</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Анимета</h2>
+                <p>Пълна класация на заглавията.</p>
+                <a class="btn btn-primary" asp-controller="Animes" asp-action="Index">Виж Анимета &raquo;</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Автори</h2>
+                <p>Информация за авторите.</p>
+                <a class="btn btn-secondary" asp-controller="Writers" asp-action="Index">Виж Автори &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>

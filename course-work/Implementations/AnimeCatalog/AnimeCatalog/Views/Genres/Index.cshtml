@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AnimeCatalog.Models.Genre>
+
+@{
+    ViewData["Title"] = "Жанрове";
+}
+
+<h1>Списък с жанрове</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Създай нов Жанр</a>
+    </p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Търсене по име: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Търси" class="btn btn-default" /> |
+                <a asp-action="Index">Обратно към пълния списък</a>
+            </p>
+        </div>
+    </form>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Име (А-Я)</a>
+                }
+                else
+                {
+                    @Html.DisplayNameFor(model => model.Name)
+                }
+            </th>
+            <th>Описание</th>
+            <th>Възрастово ограничение</th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PopSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Популярност (Топ)</a>
+                }
+                else
+                {
+                    @Html.DisplayNameFor(model => model.PopularityRating)
+                }
+            </th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@(item.IsAgeRestricted ? "Да" : "Не")</td>
+                <td>@Html.DisplayFor(modelItem => item.PopularityRating)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span> | </span>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
+
+                        <span> | </span>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Изтрий</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

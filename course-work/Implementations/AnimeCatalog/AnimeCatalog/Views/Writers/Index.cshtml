@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AnimeCatalog.Models.Writer>
+
+@{
+    ViewData["Title"] = "Автори";
+}
+
+<h1>Списък с автори</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Добави нов автор</a>
+    </p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Търси по име: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Търси" class="btn btn-default" /> |
+                <a asp-action="Index">Обратно към всички</a>
+            </p>
+        </div>
+    </form>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Снимка</th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Име (А-Я)</a>
+                }
+                else
+                {
+
+                    @Html.DisplayNameFor(model => model.FullName)
+                }
+            </th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Дата на раждане (Най-стари)</a>
+                }
+                else
+                {
+
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                }
+            </th>
+            <th>Години активност</th>
+            <th>Net Worth (M)</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Photo" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%;" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Photo</span>
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.YearsActive)</td>
+                <td>@Html.DisplayFor(modelItem => item.NetWorthMillions)</td>
+                <td>@(item.IsRetired ? "Пенсиониран" : "Активен")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span> | </span>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
+
+                        <span> | </span>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Изтрий</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

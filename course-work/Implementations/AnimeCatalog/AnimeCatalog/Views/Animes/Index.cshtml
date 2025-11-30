@@ -1,0 +1,93 @@
+﻿@model IEnumerable<AnimeCatalog.Models.Anime>
+
+@{
+    ViewData["Title"] = "Аниме Каталог";
+}
+
+<h1>Аниме каталог</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Добави ново аниме</a>
+    </p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Търси по име: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Търси" class="btn btn-default" /> |
+                <a asp-action="Index">Обратно към всички</a>
+            </p>
+        </div>
+    </form>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Постер</th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Заглавие (А-Я)</a>
+                }
+                else
+                {
+
+                    @Html.DisplayNameFor(model => model.Title)
+                }
+            </th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["RatingSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">IMDB Рейтинг</a>
+                }
+                else
+                {
+
+                    @Html.DisplayNameFor(model => model.IMDBRating)
+                }
+            </th>
+            <th>Жанр</th>
+            <th>Автор</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Poster" style="width: 50px; height: 75px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Image</span>
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.IMDBRating)</td>
+                <td>@Html.DisplayFor(modelItem => item.Genre.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Writer.FullName)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span> | </span>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
+
+                        <span> | </span>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Изтрий</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
