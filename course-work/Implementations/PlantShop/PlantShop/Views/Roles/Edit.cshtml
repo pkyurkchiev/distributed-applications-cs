@@ -1,0 +1,36 @@
+﻿@model PlantShop.Models.EditUserRolesViewModel
+
+<h2>Change role</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary()
+    </div>
+}
+
+
+
+<form method="post">
+    <input type="hidden" asp-for="UserId" />
+
+    <div class="form-group mb-3">
+        <label>Email:</label>
+        <input value="@Model.Email" class="form-control" readonly />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Choose role:</label>
+        <select class="form-select" asp-for="SelectedRole">
+            @foreach (var role in Model.Roles)
+            {
+                <option value="@role.Name" selected="@Model.UserRoles.Contains(role.Name)">
+                    @role.Name
+                </option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Запази</button>
+    <a asp-action="Index" class="btn btn-secondary">Назад</a>
+</form>

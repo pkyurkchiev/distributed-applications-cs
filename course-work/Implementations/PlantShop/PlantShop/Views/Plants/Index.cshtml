@@ -1,0 +1,176 @@
+﻿@* @model IEnumerable<PlantShop.Models.Plant> *@
+@model PlantShop.Models.PaginatedList<PlantShop.Models.Plant>
+
+
+@{
+    ViewData["Title"] = "Plants";
+}
+
+<h1>Plants</h1>
+
+@* //User и Admin могат само да търсят*@
+@if (User.IsInRole("User") || User.IsInRole("Admin"))
+{
+    <form asp-action="Index" method="get">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" name="searchName" value="@ViewData["SearchName"]" class="form-control" placeholder="Search by name..." />
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="searchSpecies" value="@ViewData["SearchSpecies"]" class="form-control" placeholder="Search by speacie..." />
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a asp-action="Index" class="btn btn-secondary">Clear</a>
+            </div>
+        </div>
+    </form>
+}
+
+
+@* // create само за admin *@
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th> *@
+            <th>
+                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSort"]">Name</a>
+                }
+                else
+                {
+                    @:Name
+                }
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Species) *@
+                @Html.DisplayNameFor(m => m[0].Species)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th> *@
+            <th>
+                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSort"]">Price</a>
+                }
+                else
+                {
+                    @:Price
+                }
+            </th>
+
+            @* <th>
+                @Html.DisplayNameFor(model => model.StockQuantity)
+            </th> *@
+            <th>
+                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                {
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["StockSort"]">Stock</a>
+                }
+                else
+                {
+                    @:Stock
+                }
+            </th>
+
+            <th>
+                @* @Html.DisplayNameFor(model => model.IsIndoor) *@
+                @Html.DisplayNameFor(m => m[0].IsIndoor)
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.PlantedOn) *@
+                @Html.DisplayNameFor(m => m[0].PlantedOn)
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Soil) *@
+                @Html.DisplayNameFor(m => m[0].Soil)
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Fertilizer) *@
+                @Html.DisplayNameFor(model => model[0].Fertilizer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Species)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIndoor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlantedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soil.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fertilizer.Name)
+            </td>
+            <td>
+                @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @: |
+                           <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        @: |
+                           <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }                  
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@if (User.IsInRole("User") || User.IsInRole("Admin"))
+{
+// пагинация
+<div class="d-flex justify-content-between mt-3">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary">Previous</a>
+    }
+    else
+    {
+        <span class="btn btn-outline-secondary disabled">Previous</span>
+    }
+
+    <span>Page @Model.PageIndex of @Model.TotalPages</span>
+
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary">Next</a>
+    }
+    else
+    {
+        <span class="btn btn-outline-secondary disabled">Next</span>
+    }
+</div>
+}

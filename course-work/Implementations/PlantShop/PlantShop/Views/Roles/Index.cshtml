@@ -1,0 +1,39 @@
+﻿@using PlantShop.Models
+@model IEnumerable<Users>
+
+
+<h2>Manage Roles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Manage</th>
+            @* <th>Delete</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                @* <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">
+                        Change role
+                    </a>
+                </td> *@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary btn-sm">Change Role</a>
+
+                    <a asp-action="Delete" asp-route-id="@user.Id"
+                       class="btn btn-danger btn-sm">
+                       @* onclick="return confirm('Are you sure?');"> *@
+                        Delete
+                    </a>
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
