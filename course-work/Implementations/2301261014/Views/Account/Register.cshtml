@@ -1,0 +1,113 @@
+﻿@model RaceTrack.Models.User
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card racing-card shadow">
+            <div class="card-header racing-header">
+                <h3 class="mb-0"><i class="fas fa-user-plus"></i> РЕГИСТРАЦИЯ</h3>
+            </div>
+            <div class="card-body">
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i> @ViewBag.Error
+                    </div>
+                }
+
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i> @ViewBag.Success
+                        <hr />
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-danger btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> Влезте в системата
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <form asp-controller="Account" asp-action="Register" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FullName" class="form-label">Пълно име *</label>
+                                <input asp-for="FullName" class="form-control" required />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Email" class="form-label">Email *</label>
+                                <input asp-for="Email" type="email" class="form-control" required />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Username" class="form-label">Потребителско име *</label>
+                                <input asp-for="Username" class="form-control" required />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="PhoneNumber" class="form-label">Телефон *</label>
+                                <input asp-for="PhoneNumber" type="tel" class="form-control" required />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Password" class="form-label">Парола *</label>
+                                <input asp-for="Password" type="password" class="form-control" required />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="ConfirmPassword" class="form-label">Потвърди парола *</label>
+                                <input type="password" id="ConfirmPassword" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <small><i class="fas fa-info-circle"></i> Всички полета са задължителни</small>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-user-plus"></i> РЕГИСТРИРАЙ СЕ
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr class="my-4" />
+
+                    <div class="text-center">
+                        <p class="text-white-50">Вече имате акаунт?</p>
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light">
+                            <i class="fas fa-sign-in-alt"></i> Влезте тук
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            var password = document.getElementById('Password').value;
+            var confirmPassword = document.getElementById('ConfirmPassword').value;
+
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Паролите не съвпадат!');
+                return false;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card racing-card shadow">
+            <div class="card-header racing-header">
+                <h3 class="mb-0"><i class="fas fa-lock"></i> ВХОД В СИСТЕМАТА</h3>
+            </div>
+            <div class="card-body">
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i> @ViewBag.Error
+                    </div>
+                }
+
+                <form asp-controller="Account" asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Потребителско име</label>
+                        <input type="text" class="form-control" id="username" name="username" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Парола</label>
+                        <input type="password" class="form-control" id="password" name="password" required />
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> ВХОД
+                        </button>
+                    </div>
+                </form>
+
+                <hr class="my-4" />
+
+                <div class="text-center">
+                    <p class="text-white-50">Нямате акаунт?</p>
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-outline-light">
+                        <i class="fas fa-user-plus"></i> Регистрирайте се тук
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card racing-card mt-3 border-warning">
+            <div class="card-body">
+                <h6 class="card-title text-warning">
+                    <i class="fas fa-info-circle"></i> Тестови данни за администратор:
+                </h6>
+                <p class="mb-0 text-white-50">
+                    <strong>Потребител:</strong> Kristiqn<br />
+                    <strong>Парола:</strong> 7a528c12
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

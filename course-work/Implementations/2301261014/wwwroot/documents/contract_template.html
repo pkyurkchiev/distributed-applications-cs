@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Договор - RaceTrack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .contract-number {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .signature-area {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .signature-box {
+            width: 45%;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .highlight {
+            background-color: #ffff99;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="text-align: center; margin-bottom: 20px; background: #f0f0f0; padding: 10px;">
+        <strong>ℹ️ Инструкции:</strong> Разпечатайте този документ, попълнете всички полета с <span style="background: #ffff99;">жълт фон</span>, подпишете и го сканирайте обратно.
+        <br><br>
+        <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">🖨️ Разпечатай</button>
+    </div>
+
+    <div class="contract-number">
+        Договор № <span class="highlight">__________</span><br>
+        Дата: <span class="highlight">__________</span>
+    </div>
+
+    <h1>ДОГОВОР ЗА НАЕМ НА УСЛУГИ</h1>
+    <h2 style="text-align: center;">RaceTrack - Каране на спортни автомобили</h2>
+
+    <div class="section">
+        <p>Днес, <span class="highlight">________________</span> г., в гр. Пловдив, между:</p>
+    </div>
+
+    <div class="section">
+        <h3>1. СТРАНИ ПО ДОГОВОРА</h3>
+
+        <p><strong>ИЗПЪЛНИТЕЛ:</strong> RaceTrack ЕООД</p>
+        <table>
+            <tr>
+                <td width="30%"><strong>ЕИК:</strong></td>
+                <td>123456789</td>
+            </tr>
+            <tr>
+                <td><strong>Адрес:</strong></td>
+                <td>гр. Пловдив, ул. Спортна 1</td>
+            </tr>
+            <tr>
+                <td><strong>Телефон:</strong></td>
+                <td>+359 888 123 456</td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td>info@racetrack.bg</td>
+            </tr>
+        </table>
+
+        <p><strong>КЛИЕНТ:</strong></p>
+        <table>
+            <tr>
+                <td width="30%"><strong>Име:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>ЕГН:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Адрес:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Лична карта №:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Телефон:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>2. ПРЕДМЕТ НА ДОГОВОРА</h3>
+        <p>Изпълнителят се задължава да предоставя на Клиента следните услуги:</p>
+
+        <table>
+            <tr>
+                <td><strong>Избран план:</strong></td>
+                <td class="highlight">☐ Начинаещ &nbsp; ☐ Напредващ &nbsp; ☐ Професионален</td>
+            </tr>
+            <tr>
+                <td><strong>Продължителност:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Дата на провеждане:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+            <tr>
+                <td><strong>Час:</strong></td>
+                <td class="highlight">_________________________________</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>3. ЦЕНА И НАЧИН НА ПЛАЩАНЕ</h3>
+        <table>
+            <tr>
+                <td width="30%"><strong>Обща стойност:</strong></td>
+                <td class="highlight">_________________ лв (с ДДС)</td>
+            </tr>
+            <tr>
+                <td><strong>Начин на плащане:</strong></td>
+                <td class="highlight">☐ В брой &nbsp; ☐ Банков превод &nbsp; ☐ Карта</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>4. ЗАДЪЛЖЕНИЯ НА КЛИЕНТА</h3>
+        <p>Клиентът се задължава да:</p>
+        <ul>
+            <li>Притежава валидна шофьорска книжка</li>
+            <li>Спазва указанията на инструктора</li>
+            <li>Носи съответна екипировка (затворени обувки, удобно облекло)</li>
+            <li>Не употребява алкохол или упойващи вещества</li>
+            <li>Заплати определената цена</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>5. ЗАДЪЛЖЕНИЯ НА ИЗПЪЛНИТЕЛЯ</h3>
+        <p>Изпълнителят се задължава да:</p>
+        <ul>
+            <li>Осигури изправен автомобил и екипировка</li>
+            <li>Осигури застраховка "Гражданска отговорност"</li>
+            <li>Предостави професионален инструктор</li>
+            <li>Спазва мерките за безопасност</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>6. ОТГОВОРНОСТ</h3>
+        <p>Клиентът носи отговорност за щети, причинени умишлено или при нарушаване на правилата за безопасност. Изпълнителят не носи отговорност за лични вещи на Клиента.</p>
+    </div>
+
+    <div class="section">
+        <h3>7. ДЕКЛАРАЦИЯ</h3>
+        <p>С подписването на настоящия договор, Клиентът декларира, че:</p>
+        <ul>
+            <li>Е запознат с правилата за безопасност</li>
+            <li>Притежава валидна шофьорска книжка</li>
+            <li>Не е под влияние на алкохол или упойващи вещества</li>
+            <li>Е в добро здравословно състояние</li>
+            <li>Участва по собствено желание и на собствен риск</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>8. СЪГЛАСИЕ ЗА ОБРАБОТКА НА ЛИЧНИ ДАННИ (GDPR)</h3>
+        <p>Клиентът дава съгласие личните му данни да бъдат обработвани от Изпълнителя за целите на изпълнение на настоящия договор, съгласно Регламент (ЕС) 2016/679.</p>
+    </div>
+
+    <div class="section">
+        <p>Договорът се сключва в два еднообразни екземпляра - по един за всяка от страните.</p>
+    </div>
+
+    <div class="signature-area">
+        <div class="signature-box">
+            <strong>ИЗПЪЛНИТЕЛ:</strong><br>
+            RaceTrack ЕООД<br><br>
+            _______________________<br>
+            (подпис и печат)
+        </div>
+        <div class="signature-box">
+            <strong>КЛИЕНТ:</strong><br><br><br>
+            _______________________<br>
+            <span class="highlight">(име и подпис)</span>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; font-size: 12px; color: #666; text-align: center;">
+        <p>RaceTrack ЕООД | гр. Пловдив, ул. Спортна 1 | тел: +359 888 123 456 | email: info@racetrack.bg</p>
+    </div>
+</body>
+</html>

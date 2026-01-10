@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Избор на план";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">🏎️ Изберете вашия план</h1>
+    <p class="lead">Изберете плана, който най-добре отговаря на вашите нужди</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-success text-white text-center">
+                <h3>Начинаещ</h3>
+            </div>
+            <div class="card-body text-center">
+                <h1 class="display-3 my-4">150 <small class="text-muted">лв</small></h1>
+                <ul class="list-unstyled">
+                    <li class="mb-3">✓ 30 минути управление</li>
+                    <li class="mb-3">✓ Базово обучение</li>
+                    <li class="mb-3">✓ Инструктор до теб</li>
+                    <li class="mb-3">✓ Всички мерки за безопасност</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Booking" asp-action="BookingForm" asp-route-plan="Начинаещ"
+                   class="btn btn-success btn-lg w-100">
+                    Избери този план
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow border-primary" style="border-width: 3px;">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Напредващ</h3>
+                <span class="badge bg-warning text-dark">ПОПУЛЯРЕН</span>
+            </div>
+            <div class="card-body text-center">
+                <h1 class="display-3 my-4">250 <small class="text-muted">лв</small></h1>
+                <ul class="list-unstyled">
+                    <li class="mb-3">✓ 60 минути управление</li>
+                    <li class="mb-3">✓ Напреднали техники</li>
+                    <li class="mb-3">✓ Свободно каране</li>
+                    <li class="mb-3">✓ Професионално обучение</li>
+                    <li class="mb-3">✓ Снимки и видео</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Booking" asp-action="BookingForm" asp-route-plan="Напредващ"
+                   class="btn btn-primary btn-lg w-100">
+                    Избери този план
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-warning text-center">
+                <h3>Професионален</h3>
+            </div>
+            <div class="card-body text-center">
+                <h1 class="display-3 my-4">400 <small class="text-muted">лв</small></h1>
+                <ul class="list-unstyled">
+                    <li class="mb-3">✓ 120 минути управление</li>
+                    <li class="mb-3">✓ Професионално обучение</li>
+                    <li class="mb-3">✓ Състезателни техники</li>
+                    <li class="mb-3">✓ Видео анализ</li>
+                    <li class="mb-3">✓ Сертификат</li>
+                    <li class="mb-3">✓ VIP обслужване</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Booking" asp-action="BookingForm" asp-route-plan="Професионален"
+                   class="btn btn-warning btn-lg w-100">
+                    Избери този план
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info mt-4">
+    <h5>ℹ️ Важна информация:</h5>
+    <ul>
+        <li>След избор на план ще попълните лична информация</li>
+        <li>Ще трябва да качите договор и снимки на лична карта</li>
+        <li>Резервацията ще бъде потвърдена от администратор</li>
+    </ul>
+</div>

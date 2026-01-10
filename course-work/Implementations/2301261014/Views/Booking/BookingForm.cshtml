@@ -1,0 +1,62 @@
+﻿@model RaceTrack.Models.Booking
+@{
+    ViewData["Title"] = "Резервация";
+    var plan = ViewBag.Plan;
+    var price = ViewBag.Price;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">📋 Данни за резервация</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="alert alert-info">
+                    <h5>Избран план: <strong>@plan</strong></h5>
+                    <h4>Цена: <strong>@price лв</strong></h4>
+                </div>
+
+                <form asp-controller="Booking" asp-action="BookingForm" method="post">
+                    <input type="hidden" name="plan" value="@plan" />
+
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label">Пълно име *</label>
+                        <input asp-for="FullName" class="form-control" required placeholder="Иван Иванов" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Email" class="form-label">Email *</label>
+                            <input asp-for="Email" type="email" class="form-control" required placeholder="ivan@example.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Phone" class="form-label">Телефон *</label>
+                            <input asp-for="Phone" type="tel" class="form-control" required placeholder="0888123456" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Address" class="form-label">Адрес</label>
+                        <input asp-for="Address" class="form-control" placeholder="гр. София, ул. Примерна 1" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Важно:</strong> Моля попълнете точни данни. След потвърждение ще трябва да качите договор и снимки на лична карта.
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Продължи към документи</button>
+                        <a asp-action="SelectPlan" class="btn btn-outline-secondary">Назад към планове</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

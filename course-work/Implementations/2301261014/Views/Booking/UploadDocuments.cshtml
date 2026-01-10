@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "Качване на документи";
+    var bookingId = ViewBag.BookingId;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">📎 Качване на документи</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="alert alert-info">
+                    <h5>Резервация #@bookingId</h5>
+                    <p class="mb-0">Моля качете необходимите документи за да завършите резервацията.</p>
+                </div>
+
+                <form asp-controller="Booking" asp-action="UploadDocuments" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="bookingId" value="@bookingId" />
+
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">📄 Договор (Стъпка 1)</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ol>
+                                        <li>Изтеглете шаблона на договора</li>
+                                        <li>Разпечатайте го</li>
+                                        <li>Попълнете и подпишете</li>
+                                        <li>Сканирайте или снимайте (ясно и четливо)</li>
+                                        <li>Качете тук</li>
+                                    </ol>
+
+                                    <a asp-controller="Booking" asp-action="DownloadContract" class="btn btn-outline-primary mb-3">
+                                        📥 Изтегли договор
+                                    </a>
+
+                                    <div class="mb-3">
+                                        <label for="contract" class="form-label">Качи подписан договор *</label>
+                                        <input type="file" class="form-control" id="contract" name="contract"
+                                               accept=".pdf,.jpg,.jpeg,.png" required />
+                                        <small class="text-muted">Формати: PDF, JPG, PNG (макс. 5MB)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning">
+                                    <h5 class="mb-0">🪪 Лична карта - лице</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p>Качете ясна снимка на ЛИЦЕВАТА страна на личната карта.</p>
+
+                                    <div class="mb-3">
+                                        <label for="idFront" class="form-label">Снимка на лице *</label>
+                                        <input type="file" class="form-control" id="idFront" name="idFront"
+                                               accept=".jpg,.jpeg,.png" required />
+                                        <small class="text-muted">Формати: JPG, PNG (макс. 5MB)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning">
+                                    <h5 class="mb-0">🪪 Лична карта - гръб</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p>Качете ясна снимка на ЗАДНАТА страна на личната карта.</p>
+
+                                    <div class="mb-3">
+                                        <label for="idBack" class="form-label">Снимка на гръб *</label>
+                                        <input type="file" class="form-control" id="idBack" name="idBack"
+                                               accept=".jpg,.jpeg,.png" required />
+                                        <small class="text-muted">Формати: JPG, PNG (макс. 5MB)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger">
+                        <strong>⚠️ ВАЖНО:</strong>
+                        <ul class="mb-0">
+                            <li>Всички полета са задължителни</li>
+                            <li>Снимките трябва да са ясни и четливи</li>
+                            <li>Личните данни трябва да са видими</li>
+                            <li>Максимален размер на файл: 5MB</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            ✓ Качи документи и завърши резервацията
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Валидация на размера на файловете
+        document.querySelectorAll('input[type="file"]').forEach(function(input) {
+            input.addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                if (file && file.size > 5 * 1024 * 1024) { // 5MB
+                    alert('Файлът е твърде голям! Максималният размер е 5MB.');
+                    e.target.value = '';
+                }
+            });
+        });
+    </script>
+}

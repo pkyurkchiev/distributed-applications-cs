@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RaceTrack.Models.User>
+@{
+    ViewData["Title"] = "Всички потребители";
+}
+
+<div class="admin-header mb-4">
+    <h1 class="display-5 text-white">
+        <i class="fas fa-users"></i> Всички потребители (@Model.Count())
+    </h1>
+</div>
+
+<div class="card racing-card shadow mb-4">
+    <div class="card-header racing-header">
+        <h3 class="mb-0">
+            <i class="fas fa-list"></i> Списък с потребители
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Пълно име</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Телефон</th>
+                        <th>Ниво</th>
+                        <th>Резервации</th>
+                        <th>Регистриран</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.UserId</td>
+                            <td><strong>@user.FullName</strong></td>
+                            <td>@user.Username</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>
+                                @if (user.UserLevel == 2)
+                                {
+                                    <span class="badge bg-danger">Admin</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-info">User</span>
+                                }
+                            </td>
+                            <td>
+                                <span class="badge bg-success">@user.Bookings.Count</span>
+                            </td>
+                            <td>@user.CreatedAt.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                <a asp-action="UserDetails" asp-route-id="@user.UserId"
+                                   class="btn btn-sm btn-danger">
+                                    <i class="fas fa-eye"></i> Преглед
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <a asp-action="Dashboard" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Назад към Dashboard
+    </a>
+</div>
