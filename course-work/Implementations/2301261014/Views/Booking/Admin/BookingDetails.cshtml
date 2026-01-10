@@ -1,0 +1,229 @@
+﻿@model RaceTrack.Models.Booking
+@{
+    ViewData["Title"] = "Детайли за резервация";
+}
+
+<div class="mb-4">
+    <a asp-action="AllBookings" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Назад към списъка
+    </a>
+</div>
+
+<div class="admin-header mb-4">
+    <h1 class="display-6 text-white">
+        <i class="fas fa-file-alt"></i> Резервация #@Model.BookingId
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card racing-card shadow mb-4">
+            <div class="card-header racing-header">
+                <h4 class="mb-0"><i class="fas fa-info-circle"></i> Информация</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-dark">
+                    <tr>
+                        <th width="30%">Дата на резервация:</th>
+                        <td>@Model.BookingDate.ToString("dd.MM.yyyy HH:mm")</td>
+                    </tr>
+                    <tr>
+                        <th>План:</th>
+                        <td>
+                            <span class="badge
+                                @(Model.Plan == "Начинаещ" ? "plan-beginner" :
+                                                                    Model.Plan == "Напредващ" ? "plan-advanced" : "plan-pro")">
+                                @Model.Plan
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Цена:</th>
+                        <td><strong class="h4 text-danger">@Model.Price лв</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Статус:</th>
+                        <td>
+                            @if (Model.Status == "Pending")
+                            {
+                                <span class="badge status-pending"><i class="fas fa-clock"></i> Изчаква</span>
+                            }
+                            else if (Model.Status == "Confirmed")
+                            {
+                                <span class="badge status-confirmed"><i class="fas fa-check"></i> Потвърдена</span>
+                            }
+                            else if (Model.Status == "Completed")
+                            {
+                                <span class="badge status-completed"><i class="fas fa-flag-checkered"></i> Завършена</span>
+                            }
+                            else if (Model.Status == "Cancelled")
+                            {
+                                <span class="badge status-cancelled"><i class="fas fa-times"></i> Отказана</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+
+                <hr class="bg-danger" />
+
+                <h5 class="text-danger"><i class="fas fa-user"></i> Данни на клиента</h5>
+                <table class="table table-dark">
+                    <tr>
+                        <th width="30%">Име:</th>
+                        <td>@Model.FullName</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <th>Телефон:</th>
+                        <td>@Model.Phone</td>
+                    </tr>
+                    <tr>
+                        <th>Адрес:</th>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <th>Потребител:</th>
+                        <td>@Model.User.Username (@Model.User.Email)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        @if (Model.Documents != null && Model.Documents.Any())
+        {
+            <div class="card racing-card shadow">
+                <div class="card-header racing-header">
+                    <h4 class="mb-0"><i class="fas fa-file-pdf"></i> Документи</h4>
+                </div>
+                <div class="card-body">
+                    @foreach (var doc in Model.Documents)
+                    {
+                        <div class="card mb-3" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(220,0,0,0.3);">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">
+                                            @if (doc.DocumentType == "Contract")
+                                            {
+                                                <i class="fas fa-file-contract"></i>
+                                    
+                                                <span> Договор</span>
+                                            }
+                                            else if (doc.DocumentType == "IDFront")
+                                            {
+                                                <i class="fas fa-id-card"></i>
+                                    
+                                                <span> Лична карта - лице</span>
+                                            }
+                                            else if (doc.DocumentType == "IDBack")
+                                            {
+                                                <i class="fas fa-id-card"></i>
+                                    
+                                                <span> Лична карта - гръб</span>
+                                            }
+                                        </h6>
+                                        <p class="mb-1">
+                                            <small class="text-muted">
+                                                Качен: @doc.UploadedAt.ToString("dd.MM.yyyy HH:mm")<br />
+                                                Размер: @((doc.FileSize / 1024).ToString("N0")) KB
+                                            </small>
+                                        </p>
+                                        <p class="mb-0">
+                                            Статус:
+                                            @if (doc.Status == "Approved")
+                                            {
+                                                <span class="badge status-confirmed">Одобрен</span>
+                                            }
+                                            else if (doc.Status == "Rejected")
+                                            {
+                                                <span class="badge status-cancelled">Отхвърлен</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">Изчаква</span>
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <a href="@doc.FilePath" target="_blank" class="btn btn-sm btn-outline-primary mb-2">
+                                            <i class="fas fa-eye"></i> Виж
+                                        </a>
+
+                                        <form asp-controller="Admin" asp-action="UpdateDocumentStatus" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value="@doc.DocumentId" />
+                                            <button type="submit" name="status" value="Approved" class="btn btn-sm btn-success">
+                                                <i class="fas fa-check"></i> Одобри
+                                            </button>
+                                            <button type="submit" name="status" value="Rejected" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-times"></i> Отхвърли
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <div class="card racing-card shadow mb-3">
+            <div class="card-header racing-header">
+                <h5 class="mb-0"><i class="fas fa-cogs"></i> Управление</h5>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post">
+                    <input type="hidden" name="id" value="@Model.BookingId" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Промени статуса:</label>
+                        <select name="status" class="form-select">
+                            <option value="Pending" selected="@(Model.Status == "Pending")">Изчаква</option>
+                            <option value="Confirmed" selected="@(Model.Status == "Confirmed")">Потвърдена</option>
+                            <option value="Completed" selected="@(Model.Status == "Completed")">Завършена</option>
+                            <option value="Cancelled" selected="@(Model.Status == "Cancelled")">Отказана</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-racing">
+                            <i class="fas fa-save"></i> Обнови статус
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card racing-card shadow">
+            <div class="card-body">
+                <h6 class="text-danger mb-3"><i class="fas fa-bolt"></i> Бързи действия:</h6>
+
+                <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post" class="mb-2">
+                    <input type="hidden" name="id" value="@Model.BookingId" />
+                    <button type="submit" name="status" value="Confirmed" class="btn btn-success w-100">
+                        <i class="fas fa-check"></i> Потвърди
+                    </button>
+                </form>
+
+                <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post" class="mb-2">
+                    <input type="hidden" name="id" value="@Model.BookingId" />
+                    <button type="submit" name="status" value="Completed" class="btn btn-info w-100">
+                        <i class="fas fa-flag-checkered"></i> Завършена
+                    </button>
+                </form>
+
+                <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post">
+                    <input type="hidden" name="id" value="@Model.BookingId" />
+                    <button type="submit" name="status" value="Cancelled" class="btn btn-danger w-100">
+                        <i class="fas fa-times"></i> Откажи
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

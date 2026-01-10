@@ -1,0 +1,111 @@
+﻿@model IEnumerable<RaceTrack.Models.Document>
+@{
+    ViewData["Title"] = "Всички документи";
+}
+
+<div class="admin-header mb-4">
+    <h1 class="display-5 text-white">
+        <i class="fas fa-file-alt"></i> Всички документи (@Model.Count())
+    </h1>
+</div>
+
+<div class="card racing-card shadow mb-4">
+    <div class="card-header racing-header">
+        <h3 class="mb-0">
+            <i class="fas fa-list"></i> Качени документи
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Потребител</th>
+                        <th>Файл</th>
+                        <th>Тип</th>
+                        <th>Резервация</th>
+                        <th>Качен на</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var doc in Model)
+                    {
+                        <tr>
+                            <td>@doc.DocumentId</td>
+                            <td>
+                                <strong>@doc.Booking.User.FullName</strong><br />
+                                <small class="text-white-50">@doc.Booking.User.Email</small>
+                            </td>
+                            <td>
+                                <i class="fas fa-file"></i> @doc.FileName
+                            </td>
+                            <td>
+                                @if (doc.DocumentType == "ID")
+                                {
+                                    <span class="badge bg-info">Лична карта</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning">Договор</span>
+                                }
+                            </td>
+                            <td>
+                                План: <strong>@doc.Booking.Plan</strong><br />
+                                <small class="text-white-50">ID: @doc.Booking.BookingId</small>
+                            </td>
+                            <td>@doc.UploadDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>
+                                @if (doc.Status == "Approved")
+                                {
+                                    <span class="badge bg-success">Одобрен</span>
+                                }
+                                else if (doc.Status == "Pending")
+                                {
+                                    <span class="badge bg-warning">Очаква</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Отказан</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-action="ViewDocument" asp-route-id="@doc.DocumentId"
+                                       class="btn btn-sm btn-danger" target="_blank">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+
+                                    @if (doc.Status == "Pending")
+                                    {
+                                        <form asp-action="ApproveDocument" asp-route-id="@doc.DocumentId"
+                                              method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </form>
+
+                                        <form asp-action="RejectDocument" asp-route-id="@doc.DocumentId"
+                                              method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </form>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <a asp-action="Dashboard" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Назад към Dashboard
+    </a>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RaceTrack.Models.Booking>
+@{
+    ViewData["Title"] = "Одобрени резервации";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">
+        <i class="fas fa-calendar-check"></i> Одобрени резервации
+    </h1>
+    <p class="text-center text-muted">Списък с всички одобрени резервации в системата</p>
+
+    @if (Model.Any())
+    {
+        <div class="row">
+            @foreach (var booking in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">@booking.Plan</h5>
+                            <p class="card-text">
+                                <strong>Име:</strong> @booking.FullName<br />
+                                <strong>Дата:</strong> @booking.BookingDate.ToString("dd.MM.yyyy")<br />
+                                <strong>Цена:</strong> @booking.Price лв<br />
+                                <span class="badge bg-success">Одобрена</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination -->
+        @if (ViewBag.TotalPages > 1)
+        {
+            <nav>
+                <ul class="pagination justify-content-center">
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-action="ViewBookings" asp-route-page="@i">@i</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            <i class="fas fa-info-circle"></i> Все още няма одобрени резервации.
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-primary">
+            <i class="fas fa-home"></i> Начална страница
+        </a>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-success">
+            <i class="fas fa-sign-in-alt"></i> Вход
+        </a>
+    </div>
+</div>

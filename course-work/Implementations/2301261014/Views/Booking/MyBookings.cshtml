@@ -1,0 +1,125 @@
+﻿@model IEnumerable<RaceTrack.Models.Booking>
+@{
+    ViewData["Title"] = "Моите резервации";
+}
+
+<div class="mb-4">
+    <h1 class="display-5">📋 Моите резервации</h1>
+    <p class="lead">Преглед на всички ваши резервации</p>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+        <h5>Нямате резервации</h5>
+        <p>Все още не сте направили нито една резервация.</p>
+        <a asp-action="SelectPlan" class="btn btn-primary">Направи резервация сега</a>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var booking in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header
+                                @(booking.Status == "Pending" ? "bg-warning" :
+                                                   booking.Status == "Confirmed" ? "bg-success text-white" :
+                                                   booking.Status == "Completed" ? "bg-info text-white" : "bg-danger text-white")">
+                <h5 class="mb-0">Резервация #@booking.BookingId</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-3 text-muted">
+                    @booking.BookingDate.ToString("dd.MM.yyyy HH:mm")
+                </h6>
+
+                        <table class="table table-sm">
+                            <tr>
+                                <th>План:</th>
+                                <td><strong>@booking.Plan</strong></td>
+                            </tr>
+                            <tr>
+                                <th>Цена:</th>
+                                <td><strong>@booking.Price лв</strong></td>
+                            </tr>
+                            <tr>
+                                <th>Име:</th>
+                                <td>@booking.FullName</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>@booking.Email</td>
+                            </tr>
+                            <tr>
+                                <th>Телефон:</th>
+                                <td>@booking.Phone</td>
+                            </tr>
+                            <tr>
+                                <th>Статус:</th>
+                                <td>
+                            @if (booking.Status == "Pending")
+                                    {
+                                        <span class="badge bg-warning">Изчаква одобрение</span>
+                                    }
+                                    else if (booking.Status == "Confirmed")
+                                    {
+                                        <span class="badge bg-success">Потвърдена</span>
+                                    }
+                                    else if (booking.Status == "Completed")
+                                    {
+                                        <span class="badge bg-info">Завършена</span>
+                                    }
+                                    else if (booking.Status == "Cancelled")
+                                    {
+                                        <span class="badge bg-danger">Отказана</span>
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+
+                        @if (booking.Documents != null && booking.Documents.Any())
+                        {
+                            <hr />
+                            <h6>Качени документи:</h6>
+                            <ul class="list-unstyled">
+                                @foreach (var doc in booking.Documents)
+                                {
+                                    <li>
+                                        <small>
+                                            @if (doc.DocumentType == "Contract")
+                                            {
+                                                <span>📄 Договор</span>
+                                            }
+                                            else if (doc.DocumentType == "IDFront")
+                                            {
+                                                <span>🪪 ЛК - лице</span>
+                                            }
+                                            else if (doc.DocumentType == "IDBack")
+                                            {
+                                                <span>🪪 ЛК - гръб</span>
+                                            }
+
+                                            @if (doc.Status == "Approved")
+                                            {
+                                                <span class="badge bg-success">Одобрен</span>
+                                            }
+                                            else if (doc.Status == "Rejected")
+                                            {
+                                                <span class="badge bg-danger">Отхвърлен</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">Изчаква</span>
+                                            }
+                                        </small>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

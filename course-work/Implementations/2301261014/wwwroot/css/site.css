@@ -1,0 +1,628 @@
+﻿/* ============================================
+   GRAN TURISMO 7 RACING DESIGN
+   Черно-червен премиум дизайн
+============================================ */
+
+/* ОБЩИ СТИЛОВЕ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================
+   RACING ДИЗАЙН ОТСТРАНИ - БЕЛИ СЛЕДИ И ЧЕРВЕНИ ДЖАНТИ
+============================================ */
+
+/* БЕЛИ WAVE TIRE TRACKS - ОТЛЯВО (по-големи) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-image: url('data:image/svg+xml,<svg width="250" height="1000" xmlns="http://www.w3.org/2000/svg"><path d="M 30 0 Q 80 80, 30 160 T 30 320 Q 80 400, 30 480 T 30 640 Q 80 720, 30 800 T 30 960 Q 80 1040, 30 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 45 0 Q 95 80, 45 160 T 45 320 Q 95 400, 45 480 T 45 640 Q 95 720, 45 800 T 45 960 Q 95 1040, 45 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/><path d="M 60 0 Q 110 80, 60 160 T 60 320 Q 110 400, 60 480 T 60 640 Q 110 720, 60 800 T 60 960 Q 110 1040, 60 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 75 0 Q 125 80, 75 160 T 75 320 Q 125 400, 75 480 T 75 640 Q 125 720, 75 800 T 75 960 Q 125 1040, 75 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/><path d="M 90 0 Q 140 80, 90 160 T 90 320 Q 140 400, 90 480 T 90 640 Q 140 720, 90 800 T 90 960 Q 140 1040, 90 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 105 0 Q 155 80, 105 160 T 105 320 Q 155 400, 105 480 T 105 640 Q 155 720, 105 800 T 105 960 Q 155 1040, 105 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/></svg>');
+    background-repeat: repeat-y;
+    background-size: 250px auto;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+    animation: move-tracks-down 3s linear infinite;
+}
+
+/* БЕЛИ WAVE TIRE TRACKS - ОТДЯСНО (по-големи) */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-image: url('data:image/svg+xml,<svg width="250" height="1000" xmlns="http://www.w3.org/2000/svg"><path d="M 220 0 Q 170 80, 220 160 T 220 320 Q 170 400, 220 480 T 220 640 Q 170 720, 220 800 T 220 960 Q 170 1040, 220 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 205 0 Q 155 80, 205 160 T 205 320 Q 155 400, 205 480 T 205 640 Q 155 720, 205 800 T 205 960 Q 155 1040, 205 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/><path d="M 190 0 Q 140 80, 190 160 T 190 320 Q 140 400, 190 480 T 190 640 Q 140 720, 190 800 T 190 960 Q 140 1040, 190 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 175 0 Q 125 80, 175 160 T 175 320 Q 125 400, 175 480 T 175 640 Q 125 720, 175 800 T 175 960 Q 125 1040, 175 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/><path d="M 160 0 Q 110 80, 160 160 T 160 320 Q 110 400, 160 480 T 160 640 Q 110 720, 160 800 T 160 960 Q 110 1040, 160 1120" stroke="rgba(255,255,255,0.9)" stroke-width="6" fill="none"/><path d="M 145 0 Q 95 80, 145 160 T 145 320 Q 95 400, 145 480 T 145 640 Q 95 720, 145 800 T 145 960 Q 95 1040, 145 1120" stroke="rgba(255,255,255,0.8)" stroke-width="5" fill="none"/></svg>');
+    background-repeat: repeat-y;
+    background-size: 250px auto;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+    animation: move-tracks-down 3s linear infinite;
+}
+
+/* Контейнери за гумите - по-близо до центъра */
+.racing-line-left {
+    position: fixed;
+    top: 50%;
+    left: 180px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 400px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.racing-line-right {
+    position: fixed;
+    top: 50%;
+    right: 180px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 400px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* РЕАЛИСТИЧНА ГУМА С ЧЕРВЕНИ ДЖАНТИ - ОТЛЯВО ГОРЕ */
+.racing-line-left::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 0;
+    left: 10px;
+    background:
+    /* Централен червен hub */
+    radial-gradient(circle at center, #dc0000 0%, #8b0000 15%, #2a2a2a 20%, transparent 20%),
+    /* ЧЕРВЕНИ Spoke lines */
+    conic-gradient(from 0deg at 50% 50%, #dc0000 0deg, #2a2a2a 18deg, #dc0000 36deg, #2a2a2a 54deg, #dc0000 72deg, #2a2a2a 90deg, #dc0000 108deg, #2a2a2a 126deg, #dc0000 144deg, #2a2a2a 162deg, #dc0000 180deg, #2a2a2a 198deg, #dc0000 216deg, #2a2a2a 234deg, #dc0000 252deg, #2a2a2a 270deg, #dc0000 288deg, #2a2a2a 306deg, #dc0000 324deg, #2a2a2a 342deg, #dc0000 360deg ),
+    /* Черна tire texture */
+    radial-gradient(circle at center, transparent 55%, #0d0d0d 55%, #1a1a1a 100%);
+    border-radius: 50%;
+    border: 10px solid #0d0d0d;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 20px rgba(220, 0, 0, 0.2), 0 0 30px rgba(220, 0, 0, 0.4), 0 5px 15px rgba(0,0,0,0.5);
+    animation: spin-realistic-wheel 5s linear infinite;
+}
+
+/* РЕАЛИСТИЧНА ГУМА С ЧЕРВЕНИ ДЖАНТИ - ОТЛЯВО ДОЛУ */
+.racing-line-left::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    bottom: 0;
+    left: 10px;
+    background: radial-gradient(circle at center, #dc0000 0%, #8b0000 15%, #2a2a2a 20%, transparent 20%), conic-gradient(from 0deg at 50% 50%, #dc0000 0deg, #2a2a2a 18deg, #dc0000 36deg, #2a2a2a 54deg, #dc0000 72deg, #2a2a2a 90deg, #dc0000 108deg, #2a2a2a 126deg, #dc0000 144deg, #2a2a2a 162deg, #dc0000 180deg, #2a2a2a 198deg, #dc0000 216deg, #2a2a2a 234deg, #dc0000 252deg, #2a2a2a 270deg, #dc0000 288deg, #2a2a2a 306deg, #dc0000 324deg, #2a2a2a 342deg, #dc0000 360deg ), radial-gradient(circle at center, transparent 55%, #0d0d0d 55%, #1a1a1a 100%);
+    border-radius: 50%;
+    border: 10px solid #0d0d0d;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 20px rgba(220, 0, 0, 0.2), 0 0 30px rgba(220, 0, 0, 0.4), 0 5px 15px rgba(0,0,0,0.5);
+    animation: spin-realistic-wheel 5s linear infinite reverse;
+}
+
+/* РЕАЛИСТИЧНА ГУМА С ЧЕРВЕНИ ДЖАНТИ - ОТДЯСНО ГОРЕ */
+.racing-line-right::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 0;
+    right: 10px;
+    background: radial-gradient(circle at center, #dc0000 0%, #8b0000 15%, #2a2a2a 20%, transparent 20%), conic-gradient(from 0deg at 50% 50%, #dc0000 0deg, #2a2a2a 18deg, #dc0000 36deg, #2a2a2a 54deg, #dc0000 72deg, #2a2a2a 90deg, #dc0000 108deg, #2a2a2a 126deg, #dc0000 144deg, #2a2a2a 162deg, #dc0000 180deg, #2a2a2a 198deg, #dc0000 216deg, #2a2a2a 234deg, #dc0000 252deg, #2a2a2a 270deg, #dc0000 288deg, #2a2a2a 306deg, #dc0000 324deg, #2a2a2a 342deg, #dc0000 360deg ), radial-gradient(circle at center, transparent 55%, #0d0d0d 55%, #1a1a1a 100%);
+    border-radius: 50%;
+    border: 10px solid #0d0d0d;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 20px rgba(220, 0, 0, 0.2), 0 0 30px rgba(220, 0, 0, 0.4), 0 5px 15px rgba(0,0,0,0.5);
+    animation: spin-realistic-wheel 5s linear infinite;
+}
+
+/* РЕАЛИСТИЧНА ГУМА С ЧЕРВЕНИ ДЖАНТИ - ОТДЯСНО ДОЛУ */
+.racing-line-right::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    bottom: 0;
+    right: 10px;
+    background: radial-gradient(circle at center, #dc0000 0%, #8b0000 15%, #2a2a2a 20%, transparent 20%), conic-gradient(from 0deg at 50% 50%, #dc0000 0deg, #2a2a2a 18deg, #dc0000 36deg, #2a2a2a 54deg, #dc0000 72deg, #2a2a2a 90deg, #dc0000 108deg, #2a2a2a 126deg, #dc0000 144deg, #2a2a2a 162deg, #dc0000 180deg, #2a2a2a 198deg, #dc0000 216deg, #2a2a2a 234deg, #dc0000 252deg, #2a2a2a 270deg, #dc0000 288deg, #2a2a2a 306deg, #dc0000 324deg, #2a2a2a 342deg, #dc0000 360deg ), radial-gradient(circle at center, transparent 55%, #0d0d0d 55%, #1a1a1a 100%);
+    border-radius: 50%;
+    border: 10px solid #0d0d0d;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.9), inset 0 0 20px rgba(220, 0, 0, 0.2), 0 0 30px rgba(220, 0, 0, 0.4), 0 5px 15px rgba(0,0,0,0.5);
+    animation: spin-realistic-wheel 5s linear infinite reverse;
+}
+
+@keyframes spin-realistic-wheel {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move-tracks-down {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 1000px;
+    }
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero-section {
+    background: linear-gradient(135deg, rgba(220,0,0,0.1) 0%, rgba(139,0,0,0.2) 100%);
+    padding: 80px 20px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    border: 2px solid rgba(220,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(220,0,0,0.05)" stroke-width="1"/></svg>');
+        opacity: 0.3;
+    }
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #dc0000;
+    text-shadow: 0 0 20px rgba(220,0,0,0.5), 0 0 40px rgba(220,0,0,0.3);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(220,0,0,0.5), 0 0 40px rgba(220,0,0,0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 30px rgba(220,0,0,0.8), 0 0 60px rgba(220,0,0,0.5);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 2px;
+    position: relative;
+}
+
+/* ============================================
+   SECTION HEADERS
+============================================ */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+    .section-header h2 {
+        color: #dc0000;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+/* ============================================
+   CARDS - Общи стилове
+============================================ */
+.racing-card {
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,0,0,0.95) 100%);
+    border: 2px solid rgba(220,0,0,0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+    .racing-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(220,0,0,0.8);
+        box-shadow: 0 8px 30px rgba(220,0,0,0.4);
+    }
+
+.racing-header {
+    background: linear-gradient(135deg, #dc0000 0%, #8b0000 100%);
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+/* ============================================
+   КОЛИ - CAR CARDS
+============================================ */
+.car-card {
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,0,0,0.95) 100%);
+    border: 2px solid rgba(220,0,0,0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+    .car-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(220,0,0,0.8);
+        box-shadow: 0 8px 30px rgba(220,0,0,0.4);
+    }
+
+.car-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: #0a0a0a;
+    display: block;
+}
+
+.car-card:hover .car-image {
+    transform: scale(1.05);
+}
+
+.car-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.car-name {
+    color: #dc0000;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.car-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(220,0,0,0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(220,0,0,0.3);
+}
+
+    .car-specs span {
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .car-specs i {
+        color: #dc0000;
+        margin-right: 5px;
+    }
+
+.car-description {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* ============================================
+   ПИСТИ - TRACK CARDS
+============================================ */
+.track-card {
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,0,0,0.95) 100%);
+    border: 2px solid rgba(220,0,0,0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+    .track-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(220,0,0,0.8);
+        box-shadow: 0 8px 30px rgba(220,0,0,0.4);
+    }
+
+.track-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: #0a0a0a;
+    display: block;
+}
+
+.track-card:hover .track-image {
+    transform: scale(1.05);
+}
+
+.track-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.track-name {
+    color: #dc0000;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.track-specs {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+    .track-specs i {
+        color: #dc0000;
+        margin-right: 5px;
+    }
+
+.track-description {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn {
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc0000 0%, #8b0000 100%);
+    border-color: #dc0000;
+    color: #ffffff;
+}
+
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #ff0000 0%, #dc0000 100%);
+        border-color: #ff0000;
+        box-shadow: 0 0 20px rgba(220,0,0,0.5);
+        transform: translateY(-2px);
+    }
+
+.btn-outline-light {
+    background: transparent;
+    border-color: rgba(255,255,255,0.5);
+    color: #ffffff;
+}
+
+    .btn-outline-light:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #ffffff;
+        color: #ffffff;
+    }
+
+.btn-outline-secondary {
+    background: transparent;
+    border-color: rgba(220,0,0,0.5);
+    color: #dc0000;
+}
+
+    .btn-outline-secondary:hover {
+        background: rgba(220,0,0,0.1);
+        border-color: #dc0000;
+        color: #dc0000;
+    }
+
+/* БУТОНИ ВХОД И РЕГИСТРАЦИЯ - ГОРЕ В ДЯСНО */
+.navbar-buttons {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.btn-racing {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(220, 53, 69, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+    .btn-racing:hover {
+        background: linear-gradient(135deg, #c82333, #bd2130);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(220, 53, 69, 0.5);
+        color: white !important;
+    }
+
+/* ============================================
+   FORMS
+============================================ */
+.form-control {
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(220,0,0,0.3);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+    .form-control:focus {
+        background: rgba(0,0,0,0.7);
+        border-color: #dc0000;
+        box-shadow: 0 0 10px rgba(220,0,0,0.3);
+        color: #ffffff;
+    }
+
+.form-label {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   ADMIN DASHBOARD
+============================================ */
+.admin-header {
+    background: linear-gradient(135deg, rgba(220,0,0,0.2) 0%, rgba(139,0,0,0.3) 100%);
+    padding: 40px 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(220,0,0,0.3);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,0,0,0.95) 100%);
+    border: 2px solid rgba(220,0,0,0.3);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(220,0,0,0.8);
+        box-shadow: 0 8px 30px rgba(220,0,0,0.3);
+    }
+
+    .stat-card i {
+        color: #dc0000;
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .stat-card h3 {
+        color: #dc0000;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .stat-card p {
+        color: rgba(255,255,255,0.7);
+        font-size: 0.9rem;
+    }
+
+/* ============================================
+   TABLES
+============================================ */
+.table {
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+    .table thead th {
+        background: linear-gradient(135deg, #dc0000 0%, #8b0000 100%);
+        border-color: rgba(220,0,0,0.3);
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .table tbody tr {
+        background: rgba(0,0,0,0.5);
+        border-color: rgba(220,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background: rgba(220,0,0,0.1);
+            transform: scale(1.01);
+        }
+
+    .table tbody td {
+        border-color: rgba(220,0,0,0.2);
+        vertical-align: middle;
+    }
+
+/* ============================================
+   BADGES
+============================================ */
+.badge {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+    .badge.bg-success {
+        background: linear-gradient(135deg, #28a745 0%, #1e7e 12:39 AM <function_results> <artifact_error> Content exceeds maximum length. Consider shortening the content or splitting it into multiple parts. </artifact_error> </system_warning>
