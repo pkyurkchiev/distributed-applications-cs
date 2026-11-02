@@ -1,0 +1,103 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IEnumerable<MC.Data.Entities.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+
+    var searchTitle = ViewBag.TitleSearch;
+    var searchGenreId = ViewBag.GenreIdSearch;
+    var queryTitleParams = new Dictionary<string, string>
+            {
+                { "sortOrder", ViewBag.TitleSortParam },
+                { "searchTitle", ViewBag.TitleSearch },
+                { "searchGenreId", ViewBag.GenreIdSearch }
+            };
+    var queryReleaseDateParams = new Dictionary<string, string>
+            {
+                { "sortOrder", ViewBag.ReleaseDateSortParam },
+                { "searchTitle", ViewBag.TitleSearch },
+                { "searchGenreId", ViewBag.GenreIdSearch }
+            };
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-md-2">
+            <input asp-for="@searchTitle" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <select asp-for="@searchGenreId" class="form-control" asp-items="(IEnumerable<SelectListItem>)ViewBag.Genres"></select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary"><i class="bi bi-search"></i>Search</button>
+        </div>
+    </div>
+    <div class="col-md-2" style="height: 20px;"></div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-all-route-data="queryTitleParams">Title</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-all-route-data="queryReleaseDateParams">Release date</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Writer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Writer.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, searchTitle = ViewBag.TitleSearch, sortOrder = ViewBag.SortOrder }), 
+    new PagedListRenderOptions {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+})
